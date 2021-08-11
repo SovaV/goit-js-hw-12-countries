@@ -1,26 +1,32 @@
-import pokemonCardTp from '../templates/menu-card.hbs';
+const debounce = require('lodash.debounce');
+
+import countryCardTp from '../templates/menu-card.hbs';
 import API from './api';
 import getRefs from './get-refs';
 
 const refs = getRefs();
 
-refs.searchForm.addEventListener('submit', onSearch);
+refs.searchForm.addEventListener('input', debounce(onSearch, 1000));
 
 function onSearch(e) {
   e.preventDefault(); //не перезагружається форма
 
-  const form = e.currentTarget;
-  const searchQuery = form.elements.query.value;
+  const form = e.target;
+  const searchQuery = form.value;
 
-  API.fetchPokemon(searchQuery) // визиваєм fetchPokemon(функці) при сабміті форми, передаючи те що ми ввели в інпут
-    .then(renderPocemon)
+  API.fetchCountry(searchQuery) // визиваєм fetchCountry(функці) при сабміті форми, передаючи те що ми ввели в інпут
+    .then(renderCountry)
     .catch(onFatchError)
-    .finally(() => form.reset());
+    .finally(() => clearInput());
 }
 
-function renderPocemon(pokemon) {
-  const markup = pokemonCardTp(pokemon);
+function renderCountry(country) {
+  const markup = countryCardTp(country);
   refs.cardCont.innerHTML = markup;
+}
+
+function clearInput() {
+  refs.searchForm.value = '';
 }
 
 function onFatchError(error) {
