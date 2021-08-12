@@ -1,11 +1,13 @@
 body {
-  background-color: rgb(168, 148, 148);
+  background-color: rgb(142, 175, 236);
 }
 .container {
   align-items: center;
 }
 .country__name {
   text-align: center;
+  font-size: 40px;
+margin-top: 0;
 }
 .country__wraper {
   display: flex;
@@ -14,7 +16,28 @@ body {
 .search {
   text-align: center;
 }
-.country__img {
+.img {
   margin-left: 5%;
   width: 20%;
+}
+span {
+  font-weight: bold;
+  font-size: 18px;
+}
+.wraper__input {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.input {
+  width: 200px;
+    padding: 10px;
+}
+.text {
+font-size: larger;
+font-weight: bold;
+}
+.list {
+  font-size: larger;
+font-weight: bold;
 }
