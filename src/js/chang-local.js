@@ -28,21 +28,19 @@ function onSearch(e) {
   }
   clearInput()
   API.fetchCountry(searchQuery) 
-  .then(country => {renderCountry(country)})
+  .then(renderCountry)
   .catch(enterLetters)
 }
 function enterLetters(){
   clearInput();
   error ({
     title: 'УВАГА!',
-
     text: '← Введіть правильну назву країни',
-    delay: 2000
+    delay: 2000,
   }) 
  
 }
 function renderCountry(country) {
-  console.log(country);
   const markup = countryCardTp(country);
   refs.cardCont.innerHTML = markup;
 
@@ -60,9 +58,8 @@ function renderCountry(country) {
 function onFatchError() {
   error({
     title: 'УВАГА!',
-
     text: 'Укажіть більш точну назву країни',
-    delay: 2000
+    delay: 2000,
 }); 
 }
 
