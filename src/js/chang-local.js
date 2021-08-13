@@ -22,11 +22,14 @@ function clearInput() {
 
 function onSearch(e) {
   e.preventDefault(); //не перезагружається форма
-  const searchQuery = e.target.value;
+  const searchQuery = e.target.value.trim();
+  if (!searchQuery) {      
+    return;
+  }
   clearInput()
   API.fetchCountry(searchQuery) 
   .then(renderCountry)
-  .catch(enterLetters)
+  .catch(onFatchError)
 }
 function enterLetters(){
   clearInput();
@@ -41,7 +44,7 @@ function renderCountry(country) {
 
   if (country.length > 10) {
     clearInput()
-    onFatchError()
+    enterLetters()
   }
   if (country.length >= 2 && country.length <= 10) {
     clearInput()
