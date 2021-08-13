@@ -30,14 +30,18 @@ span {
   flex-direction: column;
 }
 .input {
+  margin: 40px 0px 0px 0px;
   width: 200px;
     padding: 10px;
+    font-size: 24px;
+    border-width: 3px;
+    border-radius: 10px;
 }
 .text {
 font-size: larger;
 font-weight: bold;
 }
 .list {
-  font-size: larger;
+  font-size: 24px;
 font-weight: bold;
 }

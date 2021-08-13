@@ -14,7 +14,7 @@ const refs = getRefs();
 refs.searchForm.addEventListener('input', debounce(onSearch, 1000));
 
 function clearInput() {
-  refs.searchForm.value = '';
+  // refs.searchForm.value = '';
   refs.cardCont.innerHTML = ''
   refs.inputText.innerHTML = ''
   refs.list.innerHTML = ''
