@@ -29,7 +29,7 @@ function onSearch(e) {
   clearInput()
   API.fetchCountry(searchQuery) 
   .then(renderCountry)
-  .catch(onFatchError)
+  .catch(enterLetters)
 }
 function enterLetters(){
   clearInput();
@@ -44,7 +44,7 @@ function renderCountry(country) {
 
   if (country.length > 10) {
     clearInput()
-    enterLetters()
+    onFatchError()
   }
   if (country.length >= 2 && country.length <= 10) {
     clearInput()
