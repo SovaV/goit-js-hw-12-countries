@@ -34,9 +34,7 @@ function onSearch(e) {
 function enterLetters(){
   clearInput();
   error ({
-    title: 'УВАГА!',
     text: '← Введіть правильну назву країни',
-    delay: 2000,
   }) 
  
 }
@@ -57,9 +55,7 @@ function renderCountry(country) {
 }
 function onFatchError() {
   error({
-    title: 'УВАГА!',
     text: 'Укажіть більш точну назву країни',
-    delay: 2000,
 }); 
 }
 
