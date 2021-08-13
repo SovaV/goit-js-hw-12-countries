@@ -13,49 +13,45 @@ const refs = getRefs();
 refs.searchForm.addEventListener('input', debounce(onSearch, 1000));
 
 function clearInput() {
-  refs.cardCont.innerHTML = ''
-  refs.inputText.innerHTML = ''
-  refs.list.innerHTML = ''
+  refs.cardCont.innerHTML = '';
+  refs.inputText.innerHTML = '';
+  refs.list.innerHTML = '';
 }
 
 function onSearch(e) {
   e.preventDefault(); //не перезагружається форма
   const searchQuery = e.target.value.trim();
-  if (!searchQuery) {      
+  if (!searchQuery) {
     return;
   }
-  clearInput()
-  API.fetchCountry(searchQuery) 
-  .then(renderCountry)
-  .catch(enterLetters)
+  clearInput();
+  API.fetchCountry(searchQuery).then(renderCountry).catch(enterLetters);
 }
-function enterLetters(){
-  error ({
+function enterLetters() {
+  error({
     text: '← Введіть правильну назву країни',
-  }) 
-  // clearInput()
+    delay: 2000,
+  });
 }
 function renderCountry(country) {
-  const markup = countryCardTp(country);
-  refs.cardCont.innerHTML = markup;
-
-  if (country.length > 10) {
-    clearInput()
-    onFatchError()
+  if (country.length < 2) {
+    const markup = countryCardTp(country);
+    refs.cardCont.innerHTML = markup;
   }
   if (country.length >= 2 && country.length <= 10) {
-    clearInput()
+    clearInput();
     country.map(country => {
-      refs.list.insertAdjacentHTML('beforeEnd',`<li>${country.name}</li>`)
-  }); 
+      refs.list.insertAdjacentHTML('beforeEnd', `<li>${country.name}</li>`);
+    });
   }
-
+  if (country.length > 10) {
+    clearInput();
+    onFatchError();
+  }
 }
 function onFatchError() {
   error({
     text: 'Укажіть більш точну назву країни',
-}); 
+    delay: 2000,
+  });
 }
-
-
-

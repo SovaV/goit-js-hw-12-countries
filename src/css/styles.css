@@ -7,7 +7,7 @@ body {
 .country__name {
   text-align: center;
   font-size: 40px;
-margin-top: 0;
+  margin-top: 0;
 }
 .country__wraper {
   display: flex;
@@ -32,16 +32,16 @@ span {
 .input {
   margin: 40px 0px 0px 0px;
   width: 200px;
-    padding: 10px;
-    font-size: 24px;
-    border-width: 3px;
-    border-radius: 10px;
+  padding: 10px;
+  font-size: 24px;
+  border-width: 3px;
+  border-radius: 10px;
 }
 .text {
-font-size: larger;
-font-weight: bold;
+  font-size: larger;
+  font-weight: bold;
 }
 .list {
   font-size: 24px;
-font-weight: bold;
+  font-weight: bold;
 }
