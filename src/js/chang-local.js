@@ -32,10 +32,10 @@ function onSearch(e) {
   .catch(enterLetters)
 }
 function enterLetters(){
-  clearInput();
   error ({
     text: '← Введіть правильну назву країни',
   }) 
+  clearInput();
  
 }
 function renderCountry(country) {
