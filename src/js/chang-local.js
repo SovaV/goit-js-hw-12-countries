@@ -14,7 +14,6 @@ const refs = getRefs();
 refs.searchForm.addEventListener('input', debounce(onSearch, 1000));
 
 function clearInput() {
-  // refs.searchForm.value = '';
   refs.cardCont.innerHTML = ''
   refs.inputText.innerHTML = ''
   refs.list.innerHTML = ''
@@ -35,8 +34,6 @@ function enterLetters(){
   error ({
     text: '← Введіть правильну назву країни',
   }) 
-  clearInput();
- 
 }
 function renderCountry(country) {
   const markup = countryCardTp(country);
@@ -52,6 +49,7 @@ function renderCountry(country) {
       refs.list.insertAdjacentHTML('beforeEnd',`<li>${country.name}</li>`)
   }); 
   }
+
 }
 function onFatchError() {
   error({
