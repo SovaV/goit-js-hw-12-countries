@@ -1,4 +1,3 @@
-// import error from './pnotify';
 import { error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
@@ -31,9 +30,9 @@ function onSearch(e) {
   .catch(enterLetters)
 }
 function enterLetters(){
-  // error ({
-  //   text: '← Введіть правильну назву країни',
-  // }) 
+  error ({
+    text: '← Введіть правильну назву країни',
+  }) 
 }
 function renderCountry(country) {
   const markup = countryCardTp(country);
