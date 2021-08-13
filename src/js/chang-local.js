@@ -33,6 +33,7 @@ function enterLetters(){
   error ({
     text: '← Введіть правильну назву країни',
   }) 
+  // clearInput()
 }
 function renderCountry(country) {
   const markup = countryCardTp(country);
