@@ -31,9 +31,9 @@ function onSearch(e) {
   .catch(enterLetters)
 }
 function enterLetters(){
-  error ({
-    text: '← Введіть правильну назву країни',
-  }) 
+  // error ({
+  //   text: '← Введіть правильну назву країни',
+  // }) 
 }
 function renderCountry(country) {
   const markup = countryCardTp(country);
